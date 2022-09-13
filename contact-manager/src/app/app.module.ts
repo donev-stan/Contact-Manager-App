@@ -6,6 +6,19 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material.module';
 
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: 'demo',
+    loadChildren: () => import('./demo/demo.module').then((m) => m.DemoModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'demo',
+  },
+];
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -13,6 +26,7 @@ import { MaterialModule } from './shared/material.module';
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent],
