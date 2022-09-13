@@ -11,9 +11,14 @@
 
 .app-sidenav {
   width: 240px;
+  border: none;
 }
 
 .app-sidenav-content {
   display: flex;
   flex-direction: column;
+}
+
+.wrapper {
+  margin: 50px;
 }
