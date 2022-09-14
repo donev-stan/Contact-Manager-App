@@ -10,11 +10,16 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../shared/material.module';
 
 import { Routes, RouterModule } from '@angular/router';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 const routes: Routes = [
   {
     path: '',
     component: ContactmanagerAppComponent,
-    children: [{ path: '', component: MainContentComponent }],
+    children: [
+      { path: ':id', component: MainContentComponent },
+      { path: '', component: MainContentComponent },
+    ],
   },
   {
     path: '**',
@@ -35,6 +40,8 @@ const routes: Routes = [
     MaterialModule,
     FlexLayoutModule,
     RouterModule.forChild(routes),
+    HttpClientModule,
   ],
+  providers: [UserService],
 })
 export class ContactmanagerModule {}

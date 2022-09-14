@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material.module';
 
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -34,6 +35,7 @@ const routes: Routes = [
     FormsModule,
     MaterialModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
