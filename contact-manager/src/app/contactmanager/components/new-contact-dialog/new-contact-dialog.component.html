@@ -1,1 +1,39 @@
-<p>new-contact-dialog works!</p>
+<h2 mat-dialog-title>Add new contact</h2>
+
+<mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input matInput [formControl]="name" />
+    <mat-error *ngIf="name.invalid">{{ getErrorMessage() }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Bio</mat-label>
+    <textarea matInput [(ngModel)]="user.bio"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Born</mat-label>
+    <input matInput [matDatepicker]="datepicker" [(ngModel)]="user.birthDate" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+    <mat-datepicker #datepicker>
+      <mat-datepicker-actions>
+        <button mat-button matDatepickerCancel>Cancel</button>
+        <button mat-raised-button color="primary" matDatepickerApply>
+          Apply
+        </button>
+      </mat-datepicker-actions>
+    </mat-datepicker>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button color="primary" (click)="onSave()">
+    <mat-icon>save</mat-icon>
+  </button>
+
+  <button mat-button color="primary" (click)="onDismiss()">
+    <mat-icon>cancel</mat-icon>
+  </button>
+</mat-dialog-actions>

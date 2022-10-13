@@ -27,6 +27,17 @@ export class UserService {
     return this.dataStore.users.find((u) => u.id === id);
   }
 
+  addUser(user: User): Promise<User> {
+    console.log(user);
+
+    return new Promise<User>((resolve, reject) => {
+      user.id = this.dataStore.users.length + 1;
+      this.dataStore.users.push({ ...user });
+      this._users.next(Object.assign({}, this.dataStore).users);
+      resolve(user);
+    });
+  }
+
   loadAll() {
     const usersUrl = 'https://angular-material-api.azurewebsites.net/users';
 
