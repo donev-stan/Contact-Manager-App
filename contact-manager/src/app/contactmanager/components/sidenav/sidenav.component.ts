@@ -20,6 +20,9 @@ export class SidenavComponent implements OnInit {
 
   users!: Observable<User[]>;
 
+  isDarkTheme: boolean = false;
+  direction: 'ltr' | 'rtl' = 'ltr';
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     private userService: UserService,
@@ -43,5 +46,13 @@ export class SidenavComponent implements OnInit {
         this.drawer.close();
       }
     });
+  }
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
+  }
+
+  toggleDir() {
+    this.direction = this.direction === 'ltr' ? 'rtl' : 'ltr';
   }
 }
