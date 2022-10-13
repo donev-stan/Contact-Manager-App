@@ -13,6 +13,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NotesComponent } from './components/notes/notes.component';
+import { NewContactDialogComponent } from './components/new-contact-dialog/new-contact-dialog.component';
 const routes: Routes = [
   {
     path: '',
@@ -35,6 +36,7 @@ const routes: Routes = [
     MainContentComponent,
     SidenavComponent,
     NotesComponent,
+    NewContactDialogComponent,
   ],
   imports: [
     CommonModule,
